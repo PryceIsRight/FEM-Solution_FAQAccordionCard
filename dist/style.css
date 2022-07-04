@@ -1,0 +1,206 @@
+:root {
+    --dark-sat-blue: hsl(238, 29%, 16%);
+    --soft-red: hsl(14, 88%, 65%);
+    --dark-gray-blue: hsl(237, 12%, 33%);
+    --gray-blue: hsl(240, 6%, 50%);
+    --light-gray-blue: hsl(240, 5%, 91%);
+    --bg-gradient: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    --font-fam: 'Kumbh Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 12px;
+    font-family: var(--font-fam);
+}
+
+body {
+    height: 100vh;
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-gradient);
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+    background-color: var(--light-gray-blue);
+    margin: 1.2rem 0;
+}
+
+#woman-online-mobile {
+    display: none;
+}
+
+.card {
+    height: 42rem;
+    width: 75rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: #fff;
+    border-radius: 2rem;
+}
+
+.card .card-images-container {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card .card-images-container .card-box-image {
+    position: absolute;
+    top: 17.5rem;
+    left: 0;
+    transform: translateX(-90px);
+    z-index: 5;
+}
+
+.card .card-images-container .woman-online-image-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.card .card-images-container .woman-online-image-container::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    background-image: url(images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: -260px;
+}
+
+.card .card-images-container .woman-online-image-container #woman-online-desktop {
+    width: 500px;
+    transform: translateX(-80px);
+}
+
+.card .card-text-container {
+    height: 100%;
+    width: 50%;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card .card-text-container h1 {
+    font-size: 2.2rem;
+}
+
+.card .card-text-container .faq-accordion {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .card-text-container .faq-accordion .faq-item {
+    margin: 5px;
+    width: 75%;
+}
+
+.card .card-text-container .faq-accordion .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.card .card-text-container .faq-accordion .faq-question .arrow-icon {
+    transition: all 500ms ease;
+}
+
+.card .card-text-container .faq-question:hover {
+    color: var(--soft-red);
+}
+
+.card .card-text-container .faq-accordion .faq-question.active {
+    color: initial;
+    font-weight: bold;
+}
+
+.card .card-text-container .faq-accordion .faq-question.active .arrow-icon {
+    transform: rotate(-180deg);
+}
+
+.card .card-text-container .faq-accordion .faq-answer {
+    margin: 1rem 0;
+    color: var(--gray-blue);
+}
+
+@media screen and (max-width: 961px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .card {
+        height: 500px;
+        width: 80%;
+        min-width: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card .card-images-container {
+        width: 100%;
+        top: -85px;
+    }
+
+    .card .card-images-container .woman-online-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .card .card-images-container .woman-online-image-container::after {
+        top: 75px;
+        background-image: url(images/bg-pattern-mobile.svg);
+        background-repeat: no-repeat;
+        background-size: 245px;
+        background-position: center;
+    }
+
+    .card .card-images-container .woman-online-image-container #woman-online-mobile {
+        display: initial;
+        height: 250px;
+        width: 250px;
+    }
+
+    .card .card-text-container {
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+        top: -120px;
+    }
+
+    .card .card-text-container .faq-accordion {
+        width: 100%;
+    }
+
+    .card .card-text-container .faq-accordion .faq-item {
+        width: 100%;
+    }
+}
